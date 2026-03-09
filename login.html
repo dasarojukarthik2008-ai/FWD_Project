@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <form onsubmit="loginUser(); return false;">
+            <h1>LOGIN</h1>
+            <div>
+                <label for="userID" class="form-label">User ID:</label>
+                <input type="text" id="userID" placeholder="Enter your username" required>
+            </div>
+            <div>
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">LOGIN</button>
+            <p class="form-register-link">Don't have an account? <a href="register.html">Register here</a></p>
+        </form>
+    </body>
+</html>

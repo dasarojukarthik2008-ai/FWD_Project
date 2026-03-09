@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <form onsubmit="registerUser(); return false;">
+        <h1>REGISTRATION</h1>
+        <div>
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+        <div>
+            <label for="role" class="form-label">Role:</label>
+            <select id="role" required>
+                <option value="">-- Select Your Role --</option>
+                <option value="public">Public (Citizen)</option>
+                <option value="govt">Government Official</option>
+            </select>
+        </div>
+        <div>
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit">REGISTER</button>
+        <p class="form-register-link">Already registered? <a href="login.html">Login here</a></p>
+    </form>
+</body>
+</html>

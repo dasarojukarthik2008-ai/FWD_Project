@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Submit Complaint</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <form onsubmit="addComplaint(); return false;">
+        <h1>Submit a New Complaint</h1>
+        <div>
+            <label for="userID" class="form-label">User ID:</label>
+            <input type="text" id="userID" placeholder="Enter your user ID" required>
+        </div>
+        <div>
+            <label for="category" class="form-label">Complaint Category:</label>
+            <select id="category" required>
+                <option value="">Select category</option>
+                <option value="Roads & Transport Infrastructure">Roads & Transport Infrastructure</option>
+                <option value="Drainage & Flood Management">Drainage & Flood Management</option>
+                <option value="Water Supply & Distribution">Water Supply & Distribution</option>
+                <option value="Electricity & Power Supply">Electricity & Power Supply</option>
+                <option value="Sanitation & Waste Management">Sanitation & Waste Management</option>
+                <option value="Corruption & Misuse of Power">Corruption & Misuse of Power</option>
+                <option value="Law & Order / Public Security">Law & Order / Public Security</option>
+                <option value="Healthcare & Public Health">Healthcare & Public Health</option>
+                <option value="Education & Skill Development">Education & Skill Development</option>
+                <option value="Employment & Economic Distress">Employment & Economic Distress</option>
+                <option value="Women, Child & Social Welfare">Women, Child & Social Welfare</option>
+                <option value="Environment & Climate Risk">Environment & Climate Risk</option>
+                <option value="Agriculture & Rural Livelihood">Agriculture & Rural Livelihood</option>
+                <option value="National Infrastructure & Transport">National Infrastructure & Transport</option>
+                <option value="Digital Governance & Public Services">Digital Governance & Public Services</option>
+            </select>
+        </div>
+        <div>
+            <label for="area" class="form-label">Area / Region / Constituency:</label>
+            <input type="text" id="area" placeholder="Enter area, district, or constituency" required>
+        </div>
+        <div>
+            <label for="city" class="form-label">City / District / State:</label>
+            <input type="text" id="city" placeholder="Enter city, district, or state" required>
+        </div>
+        <div>
+            <label for="problem" class="form-label">Problem Description:</label>
+            <textarea id="problem" placeholder="Describe your complaint in detail..." rows="5" required></textarea>
+        </div>
+        <button type="submit">SUBMIT COMPLAINT</button>
+    </form>
+</body>
+</html>

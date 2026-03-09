@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Complaint Progress - Public Complaints System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="loadUpdateForm()">
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>🔄 Update Complaint Progress</h1>
+            <p class="dashboard-subtitle">Update progress and add evidence for the selected complaint</p>
+        </header>
+
+        <!-- Update Progress Form -->
+        <div id="updateForm" class="update-form">
+            <div class="form-group">
+                <p><strong>Complaint ID:</strong> <span id="updateComplaintID"></span></p>
+                <p><strong>Problem Description:</strong> <span id="updateProblem"></span></p>
+            </div>
+
+            <div class="form-group">
+                <label for="updateStatus">Status:</label>
+                <select id="updateStatus" class="form-select">
+                    <option value="Auto">Auto (based on progress)</option>
+                    <option value="Submitted">Submitted</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="updatePriority">Priority Level:</label>
+                <select id="updatePriority" class="form-select">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="updateProgress">Progress Percentage (0-100%):</label>
+                <input type="range" id="updateProgress" min="0" max="100" value="0" oninput="updateProgressDisplay()">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0%</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="updatePhoto">📎 Upload Evidence Photo (Optional):</label>
+                <input type="file" id="updatePhoto" accept="image/*" onchange="previewPhoto()">
+                <div id="photoPreviewContainer" style="display: none;">
+                    <img id="photoPreview" class="photo-preview" alt="Evidence Photo Preview">
+                </div>
+            </div>
+
+                        <div class="form-group">
+                <label for="updateOfficialNote">Official Response Note (Optional):</label>
+                <textarea id="updateOfficialNote" rows="3" placeholder="Describe actions taken by the department..."></textarea>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-success" onclick="saveComplaintUpdate()">💾 Save Update</button>
+                <button class="btn btn-danger" onclick="cancelUpdate()">❌ Cancel</button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="dashboard-actions">
+            <a href="govtDashboard.html" class="btn btn-secondary">⬅️ Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Transparency Portal - Complaints</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="currentFilter='all';currentSearch='';displayPublicComplaintTable()" class="public-portal-body">
+    <div class="dashboard-container public-portal">
+        <header class="dashboard-header">
+            <h1>Public Transparency Portal</h1>
+            <p class="dashboard-subtitle">View all complaints and current resolution progress</p>
+        </header>
+
+        <div class="controls-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search by Complaint ID..." onkeyup="filterComplaints()">
+            </div>
+            <div class="filter-buttons">
+                <button class="btn btn-filter active" onclick="setFilter('all', this)">All</button>
+                <button class="btn btn-filter" onclick="setFilter('Submitted', this)">Submitted</button>
+                <button class="btn btn-filter" onclick="setFilter('In Progress', this)">In Progress</button>
+                <button class="btn btn-filter" onclick="setFilter('Resolved', this)">Resolved</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h2>All Public Complaints</h2>
+            <table class="complaints-table" id="publicComplaintsTable">
+                <thead>
+                    <tr>
+                        <th>Complaint ID</th>
+                        <th>Citizen/User ID</th>
+                        <th>Category</th>
+                        <th>Area / City</th>
+                        <th>Problem Description</th>
+                        <th>Priority</th>
+                        <th>Supports</th>
+                        <th>Status</th>
+                        <th>Progress %</th>
+                        <th>Resolution Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="publicComplaintsTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <h2>Area and Complaint Analytics</h2>
+            <div id="publicAreaAnalyticsChart" class="chart-block"></div>
+            <div id="publicHeatmapStats" class="heatmap-grid"></div>
+        </div>
+
+        <div class="table-container">
+            <h2>Top Citizen Contributors</h2>
+            <table class="complaints-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Complaints Submitted</th>
+                        <th>Complaints Supported</th>
+                        <th>Contribution Score</th>
+                    </tr>
+                </thead>
+                <tbody id="publicTopContributorsTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="dashboard-actions">
+            <a href="home.html" class="btn btn-secondary">Back to Home</a>
+            <a href="login.html" class="btn btn-primary">Government Login</a>
+        </div>
+    </div>
+</body>
+</html>
+

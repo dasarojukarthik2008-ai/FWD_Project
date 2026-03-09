@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Problem Submitted</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="displayComplaintId()">
+    <div class="success-container">
+        <h1>✓ Complaint Submitted Successfully!</h1>
+        <p class="description">Your complaint has been recorded successfully. Your unique Complaint ID is:</p>
+        <h2 id="cmpID" class="id-display"></h2>
+        <p class="warning">⚠️ Please save this COMPLAINT ID for future reference.</p>
+        <p class="info">You can use this ID to track the status of your complaint on the dashboard.</p>
+        <a href="problems.html" class="primary">Submit Another Complaint</a>
+        <a href="#" class="purple" onclick="viewAllComplaints(); return false;">View All Complaints</a>
+        <a href="home.html" class="secondary">Back to Home</a>
+    </div>
+</body>
+</html>

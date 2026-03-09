@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Complaint - Public Complaints System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>🔍 Track Your Complaint</h1>
+            <p class="dashboard-subtitle">Enter your Complaint ID to check the status and progress</p>
+        </header>
+
+        <!-- Complaint Tracking Form -->
+        <div class="tracking-form">
+            <div class="form-group">
+                <label for="trackComplaintID">Enter Complaint ID:</label>
+                <input type="text" id="trackComplaintID" placeholder="e.g., CMP-2001" required>
+            </div>
+            <div class="form-group">
+                <label for="trackUserID">Enter Your User ID:</label>
+                <input type="text" id="trackUserID" placeholder="e.g., USR-1001" required>
+            </div>
+            <button class="btn btn-primary" onclick="trackComplaint()">🔍 Track Complaint</button>
+        </div>
+
+        <!-- Complaint Details (Hidden initially) -->
+        <div id="complaintDetails" class="complaint-details" style="display: none;">
+            <h2>📋 Complaint Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <strong>Complaint ID:</strong> <span id="detailComplaintID"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Category:</strong> <span id="detailCategory"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Area / City:</strong> <span id="detailLocation"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Problem:</strong> <span id="detailProblem"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Priority:</strong> <span id="detailPriority"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Support Count:</strong> <span id="detailSupportCount"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Status:</strong> <span id="detailStatus"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Progress:</strong>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="detailProgressFill" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-text" id="detailProgressText">0%</div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <strong>Evidence:</strong> <span id="detailEvidence">No evidence available</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Resolution Time:</strong> <span id="detailResolutionTime"></span>
+                </div>
+            </div>
+            <div class="detail-item detail-full">
+                <strong>Timeline / History:</strong>
+                <div id="detailTimeline"></div>
+            </div>
+            <div class="detail-item detail-full">
+                <strong>Discussion:</strong>
+                <div id="detailComments"></div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="dashboard-actions">
+            <a href="home.html" class="btn btn-secondary">🏠 Back to Home</a>
+            <a href="citizenDashboard.html" class="btn btn-primary">📊 My Complaints</a>
+        </div>
+    </div>
+</body>
+</html>

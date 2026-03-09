@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Dashboard - Public Complaints System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="currentFilter='all';currentSearch='';displayComplaintTable()">
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Government Complaint Dashboard</h1>
+            <p class="dashboard-subtitle">Manage and resolve public complaints efficiently</p>
+        </header>
+
+        <div class="stats-dashboard">
+            <div class="stat-card">
+                <h3 id="totalComplaints">0</h3>
+                <p>Total Complaints</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="submittedComplaints">0</h3>
+                <p>Submitted</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="inProgressComplaints">0</h3>
+                <p>In Progress</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="resolvedComplaints">0</h3>
+                <p>Resolved</p>
+            </div>
+        </div>
+
+        <div class="controls-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search by Complaint ID..." onkeyup="filterComplaints()">
+            </div>
+
+            <div class="filter-buttons">
+                <button class="btn btn-filter active" onclick="setFilter('all', this)">All Complaints</button>
+                <button class="btn btn-filter" onclick="setFilter('Submitted', this)">Submitted</button>
+                <button class="btn btn-filter" onclick="setFilter('In Progress', this)">In Progress</button>
+                <button class="btn btn-filter" onclick="setFilter('Resolved', this)">Resolved</button>
+                <button class="btn btn-filter" onclick="setFilter('High Priority', this)">High Priority</button>
+                <button class="btn btn-sort" onclick="sortByPriority()">Sort by Priority</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h2>All Complaints</h2>
+            <table id="complaintsTable" class="complaints-table">
+                <thead>
+                    <tr>
+                        <th>Complaint ID</th>
+                        <th>User ID</th>
+                        <th>Category</th>
+                        <th>Area / City</th>
+                        <th>Priority</th>
+                        <th>Problem Description</th>
+                        <th>Supports</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+                        <th>Resolution Time</th>
+                        <th>Evidence</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="complaintsTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <h2>Government Activity Log</h2>
+            <table class="complaints-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Official ID</th>
+                        <th>Complaint ID</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="activityLogTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <h2>Advanced Analytics</h2>
+            <div class="analytics-grid" id="advancedAnalyticsCards">
+                <div class="mini-stat">
+                    <p>Average Resolution Time</p>
+                    <h3 id="avgResolutionTime">-</h3>
+                </div>
+                <div class="mini-stat">
+                    <p>Most Common Category</p>
+                    <h3 id="mostCommonCategory">-</h3>
+                </div>
+                <div class="mini-stat">
+                    <p>Most Supported Complaint</p>
+                    <h3 id="mostSupportedComplaint">-</h3>
+                </div>
+                <div class="mini-stat">
+                    <p>7-Day Complaint Trend</p>
+                    <h3 id="complaintTrend">-</h3>
+                </div>
+            </div>
+            <div id="categoryTrendChart" class="chart-block"></div>
+        </div>
+
+        <div class="table-container">
+            <h2>Area Analytics and Heatmap</h2>
+            <div id="areaAnalyticsChart" class="chart-block"></div>
+            <div id="heatmapStats" class="heatmap-grid"></div>
+        </div>
+
+        <div class="table-container">
+            <h2>Top Citizen Contributors</h2>
+            <table class="complaints-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Complaints Submitted</th>
+                        <th>Complaints Supported</th>
+                        <th>Contribution Score</th>
+                    </tr>
+                </thead>
+                <tbody id="topContributorsTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="dashboard-actions">
+            <button class="btn btn-success" onclick="exportComplaintsReport()">Export CSV Report</button>
+            <button class="btn btn-danger" onclick="clearAllData()">Clear All Data</button>
+            <button class="btn btn-secondary" onclick="logout()">Logout</button>
+            <a href="home.html" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
+
